@@ -1,9 +1,9 @@
 package com.example.JazProject.controler;
 import com.example.JazProject.exceptions.NotFoundUserException;
 import com.example.JazProject.objects.User;
-import com.example.JazProject.repository.TwiterCloneRepository;
+
 import com.example.JazProject.service.LoignService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

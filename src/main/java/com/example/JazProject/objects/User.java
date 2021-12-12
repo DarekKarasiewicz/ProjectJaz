@@ -1,21 +1,26 @@
 package com.example.JazProject.objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.springframework.context.annotation.Bean;
 
+import java.util.Set;
+
 @Entity
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
     private String login;
 
     private String password;
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Tweets> tweetsSet;
+
     public User(int id,String login, String password) {
         this.id =id;
         this.login = login;
