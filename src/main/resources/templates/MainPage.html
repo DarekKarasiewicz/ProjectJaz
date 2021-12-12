@@ -5,6 +5,11 @@
     <title>MainPage</title>
 </head>
 <body>
+<form>
+    <input type="text">
+    <input type="submit" value="Send">
+</form>
+
 <tr th:each="tweet:${tweet}">
     <td th:text="${tweet.text}"></td>
     <td th:text="${tweet.data}"></td><br>
