@@ -5,8 +5,11 @@
     <title>MainPage</title>
 </head>
 <body>
-<form>
-    <input type="text">
+
+<a th:href="@{/profil}">Profil</a>
+
+<form method="post" th:action="@{/mainPage}" th:object="${tweets}">
+    <input type="text" th:field="${tweets.text}">
     <input type="submit" value="Send">
 </form>
 

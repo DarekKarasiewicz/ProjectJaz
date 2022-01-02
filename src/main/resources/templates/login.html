@@ -5,14 +5,16 @@
     <title>Login</title>
 </head>
 <body>
-    <form method="post" th:action="@{/login}" th:object="${user}">
+    <form method="post" th:action="@{/login}">
+        <div th:if="${param.error}" class="alert alert-error">
+            Nieprawidłowe dane użytkownika.
+        </div>
 
-        <input type="text" th:field="${user.login}">
+        <input name="username" type="text">
 
-        <input type="password" th:field="${user.password}">
+        <input name="password" type="password">
 
         <input type="submit" value="Send">
-        <label th:if="${foo==true}"> Error!</label>
     </form><br>
 <a th:href="@{/register}"> Rejestracja</a>
 </body>

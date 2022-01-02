@@ -4,6 +4,7 @@ import com.example.JazProject.exceptions.UserExistException;
 import com.example.JazProject.objects.User;
 import com.example.JazProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -21,6 +22,9 @@ public class RegisterService {
             throw new UserExistException();
         }
         else  {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);
             userRepository.save(user);
         }
 

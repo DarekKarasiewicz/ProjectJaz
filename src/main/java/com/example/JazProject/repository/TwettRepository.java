@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface TwettRepository extends CrudRepository<Tweets,Integer> {
     List<Tweets> findAll();
+    List<Tweets> findByuser_id(int user_id);
 }

@@ -3,6 +3,7 @@ package com.example.JazProject.controler;
 import com.example.JazProject.exceptions.UserExistException;
 import com.example.JazProject.objects.User;
 import com.example.JazProject.service.RegisterService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,6 @@ public class RegisterControler {
     @PostMapping("/register")
     public String createNewUser(@ModelAttribute User user) throws UserExistException {
         registerService.saveNewUser(user);
-        return "redirect:/login";
+        return "redirect:/mainPage";
     }
 }
