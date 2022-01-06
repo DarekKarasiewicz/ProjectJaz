@@ -44,7 +44,7 @@ public class MainPageControler {
 //        System.out.println(user.getId());
 
         List<Tweets> userTweets=mainPageService.getAllPost();
-        model.addAttribute("tweet", userTweets);
+        model.addAttribute("tweet",userTweets);
         model.addAttribute("tweets", new Tweets());
         return "MainPage";
     }

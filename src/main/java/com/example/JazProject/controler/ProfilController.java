@@ -32,5 +32,13 @@ public class ProfilController  {
 
         return "Profil.html";
 }
+    @GetMapping("/profil/{user_id}")
+    public String profilPageOtherUser(@PathVariable int user_id, Model model){
+        User user =userRepository.findByid(user_id);
+        List<Tweets> userTweets=twettRepository.findByuser_id(user_id);
+        model.addAttribute("User",user);
+        model.addAttribute("tweet", userTweets);
+        return "Profil.html";
+    }
 
 }

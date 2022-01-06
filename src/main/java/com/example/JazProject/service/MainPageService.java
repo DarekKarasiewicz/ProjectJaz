@@ -3,20 +3,24 @@ package com.example.JazProject.service;
 import com.example.JazProject.objects.Tweets;
 import com.example.JazProject.objects.User;
 import com.example.JazProject.repository.TwettRepository;
+import com.example.JazProject.repository.UserRepository;
 import com.example.JazProject.security.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class MainPageService {
     TwettRepository twettRepository;
+    UserRepository userRepository;
 
     @Autowired
-    public MainPageService(TwettRepository twettRepository) {
+    public MainPageService(TwettRepository twettRepository,UserRepository userRepository) {
+        this.userRepository=userRepository;
         this.twettRepository = twettRepository;
     }
 
@@ -24,6 +28,7 @@ public class MainPageService {
         List<Tweets> userTweets=twettRepository.findAll();
       return  userTweets;
     }
+
 
     public void saveTweet(Tweets tweets, MyUserPrincipal user){
         User user1=new User(user.getId(),user.getUsername(),user.getPassword());
